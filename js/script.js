@@ -1,5 +1,6 @@
 /**
- * 让我帮你百度一下【重制版】
+ * 让我帮你 S.O. 一下【重制版】
+ * S.O. 为 StackoveFlow 缩写
  * GitHub 开源地址：https://github.com/mengkunsoft/lmbtfy
  **
  * 原始版本来自 bangbang(http://lmbtfy.cn/)，mengkun(https://mkblog.cn) 在原作的基础上进行了重制，风格变更为新版百度 UI，并适配了移动端
@@ -40,7 +41,7 @@ $(function() {
         }
     }
     
-    /* 有参数，启动百度教程 */
+    /* 有参数，启动S.O. 教程 */
     if(!!query) {
         $tips.html('让我来教你正确的打开方式');
         $stop.fadeIn();
@@ -63,7 +64,7 @@ $(function() {
                         $kw.val(query.substr(0, i));
                         if (++i > query.length) {
                             clearInterval(typeInterval);
-                            $tips.html('3、点击下“百度一下”按钮');
+                            $tips.html('3、点击下“S.O. ”按钮');
                             
                             $arrow.removeClass('active').fadeIn().animate({
                                 left: $searchSubmit.offset().left + $searchSubmit.width()  / 2 + 'px',
@@ -73,7 +74,7 @@ $(function() {
                                 $arrow.addClass('active');
                                 
                                 stepTimeout = setTimeout(function () {
-                                    window.location = 'https://www.baidu.com/s?ie=utf-8&wd=' + encodeURIComponent(query);
+                                    window.location = 'http://stackoverflow.com/search?q=[js]+' + encodeURIComponent(query);
                                 }, 1000);
                             });
                         }
@@ -91,7 +92,7 @@ $(function() {
         $arrow.stop().hide();
         $kw.val(query);
         query = false;
-        $tips.html('输入一个问题，然后点击百度一下');
+        $tips.html('输入一个问题，然后点击S.O. 一下');
     });
     
     /* 提交 */
@@ -103,7 +104,7 @@ $(function() {
             $tips.html('<span style="color: red">搜了个寂寞？</span>');
             $kw.val('');
         } else {
-            $tips.html('↓↓↓ 复制下面的链接，教伸手党使用百度');
+            $tips.html('↓↓↓ 复制下面的链接，教伸手党使用S.O. ');
             $('#output').fadeIn();
             $urlOutput.val(window.location.origin + window.location.pathname + '?q=' + Base64.encode(question)).focus().select();
         }
